@@ -2333,13 +2333,19 @@ void DivEngine::registerSystems() {
     c64PostEffectHandlerMap
   );
 
-  sysDefs[DIV_SYSTEM_DUMMY]=new DivSysDef(
-    _("Dummy System"), NULL, 0xfd, 0, 8, false, true, 0, false, 0, 0, 0,
-    _("this is a system designed for testing purposes."),
-    {_("Channel 1"), _("Channel 2"), _("Channel 3"), _("Channel 4"), _("Channel 5"), _("Channel 6"), _("Channel 7"), _("Channel 8")},
-    {"CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8"},
-    {DIV_CH_NOISE, DIV_CH_NOISE, DIV_CH_NOISE, DIV_CH_NOISE, DIV_CH_NOISE, DIV_CH_NOISE, DIV_CH_NOISE, DIV_CH_NOISE},
-    {DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD, DIV_INS_STD}
+  sysDefs[DIV_SYSTEM_DUMMY] = new DivSysDef(
+    _("ECS Audio"), NULL, 0xfd, 0, 3, false, true, 0, false, 0, 0, 0,
+    _("Fictional audio chip used in the Envo Computer System."),
+    { _("Channel 1"), _("Channel 2"), _("Noise") },
+    { "CH1", "CH2", "NOI" },
+    { DIV_CH_PULSE, DIV_CH_PULSE, DIV_CH_NOISE },
+    { DIV_INS_STD, DIV_INS_STD, DIV_INS_STD },
+    {},
+    {
+      {0x10, {DIV_CMD_STD_NOISE_MODE, _("10xx: Toggle pulse mode on ch1 (00 disables, 01 enables)"), constVal<0>, effectVal}},
+      {0x11, {DIV_CMD_SID3_RING_MOD_SRC, _("11xx: Toggle ringmod mode on ch1/2 (00 disables, 01 enables)"), constVal<1>, effectVal}},
+      {0x12, {DIV_CMD_STD_NOISE_FREQ, _("12xx: Toggle 3-bit noise mode (00 disables, 01 enables)"), constVal<1>, effectVal}},
+    }
   );
 
   for (int i=0; i<DIV_MAX_CHIP_DEFS; i++) {

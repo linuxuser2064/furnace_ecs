@@ -24,8 +24,8 @@
 #include "macroInt.h"
 
 // custom clock limits
-#define MIN_CUSTOM_CLOCK 100000
-#define MAX_CUSTOM_CLOCK 40000000
+#define MIN_CUSTOM_CLOCK 44100
+#define MAX_CUSTOM_CLOCK 2147483647
 
 // common shared channel struct
 template<typename T> struct SharedChannel {

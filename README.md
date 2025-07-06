@@ -1,3 +1,10 @@
+# Furnace with ECS Audio support
+This is a fork of Furnace that replaces the Dummy system with the ECS Audio chip.
+
+This entire thing is a hack, don't expect this to get any Furnace updates or many bugfixes.
+
+## Original readme: 
+
 # Furnace (chiptune tracker)
 
 ![screenshot](papers/screenshot3.png)

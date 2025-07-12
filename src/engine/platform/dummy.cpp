@@ -80,7 +80,6 @@ void DivPlatformDummy::acquire(short** buf, size_t len) {
     for (unsigned char j = 0; j < chans; j++) {
       if (chan[j].active) {
         if (!isMuted[j]) {
-          chanOut = 0;
           if (j == 0) { // channel 1
             if (pulseModeCh1) { // pulse mode
               ch1Counter += 1;

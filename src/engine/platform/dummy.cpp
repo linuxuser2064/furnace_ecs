@@ -70,7 +70,6 @@ int StepLFSR() {
   return lfsrValue & 1;
 }
 void DivPlatformDummy::acquire(short** buf, size_t len) {
-  int chanOut;
 
   for (int i = 0; i < chans; i++) {
     oscBuf[i]->begin(len);
